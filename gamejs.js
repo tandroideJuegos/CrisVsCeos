@@ -82,16 +82,7 @@ function mouseClickHandler(e){
         tiros.splice(0, 0, [mouseXPos, baseCanvas.height*0.95 - cristinaShootImg.height]);
         relativeY = e.clientY - baseCanvas.offsetTop;
         if(relativeY > baseCanvas.height - pausa.height){
-            if(mouseXPos > baseCanvas.width - pausa.width - compartirImg.width && mouseXPos < baseCanvas.width - compartirImg.width){
-                pausaModeOn = true; 
-                gameModeOn = false;
-            }
-            else if(mouseXPos > baseCanvas.width - compartirImg.width){
-                FB.ui(
-                     {
-                      method: 'share',
-                      href: 'tandrade96.github.io/game/gamejs.html'
-                    }, function(response){});
+            if(mouseXPos > baseCanvas.width - pausa.width && mouseXPos < baseCanvas.width){
                 pausaModeOn = true; 
                 gameModeOn = false;
             }
@@ -972,12 +963,12 @@ function drawAnimNuevaConstr(mejora){
 }
 
 function drawPausa(){
-    ctx.drawImage(pausa, baseCanvas.width - compartirImg.width - pausa.width, baseCanvas.height - pausa.height);
+    ctx.drawImage(pausa, baseCanvas.width - pausa.width, baseCanvas.height - pausa.height);
 }
 
-function drawCompartir(){
+/*function drawCompartir(){
     ctx.drawImage(compartirImg, baseCanvas.width - compartirImg.width, baseCanvas.height - compartirImg.height);
-}
+}*/
 
 
 function gameMode(){
@@ -1376,7 +1367,7 @@ window.onload = function(){
     congreso = loadImg("imagenes/congreso.png");
     
     pausa = loadImg("imagenes/pausa.png");
-    compartirImg = loadImg("imagenes/compartir.png");
+    //compartirImg = loadImg("imagenes/compartir.png");
     
     tandroide = loadImg("imagenes/tandroide.png");
     
