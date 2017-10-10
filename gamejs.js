@@ -164,13 +164,13 @@ function drawBonus(){
     ctx.fillStyle = "white";
     ctx.textAlign = "center"; 
     ctx.font = "23px Consolas"; 
-    ctx.fillText("Momentos decisivos se acercan, ¿Qué debemos hacer compañerx?", baseCanvas.width/2, baseCanvas.height/2 - 2* bonusCompanero.height, baseCanvas.width);
+    ctx.fillText("Momentos decisivos se acercan, ¿Qué debemos hacer compañerx?", baseCanvas.width/2, baseCanvas.height/2 - 2* bonusCompanero.height, baseCanvas.width-20);
     ctx.drawImage(bonusCompanero, bonusCompanero.width * 2,baseCanvas.height/2 - bonusCompanero.height);
     ctx.drawImage(bonusPueblo,baseCanvas.width/2 - bonusPueblo.width/2,baseCanvas.height/2 - bonusPueblo.height);    
     ctx.drawImage(bonusRedistribucion,baseCanvas.width - bonusRedistribucion.width * 3,baseCanvas.height/2 - bonusCompanero.height);
     ctx.font = "18px Consolas"; 
     ctx.textAlign = "left";     
-    ctx.fillText("Sumar un compañero   Convocar el pueblo a la plaza   Redistribuir la riqueza", bonusCompanero.width * 2 - 20,baseCanvas.height/2 + 20, baseCanvas.width);
+    ctx.fillText("Sumar un compañero   Convocar el pueblo a la plaza   Redistribuir la riqueza", bonusCompanero.width * 2 - 20,baseCanvas.height/2 + 20, baseCanvas.width-20);
 }
 
 
@@ -914,7 +914,7 @@ function drawMensaje(mensajeN){
     var fontSize = 30;
     ctx.font = fontSize + "px Consolas"; 
     ctx.textAlign = "center"; 
-    ctx.fillText(mensajeN, baseCanvas.width /2, baseCanvas.height/2, baseCanvas.width);
+    ctx.fillText(mensajeN, baseCanvas.width /2, baseCanvas.height/2, baseCanvas.width-20);
     mensajeCount += 0.02;
     if(mensajeCount > 2){
         mensajeCount = 0; 
@@ -1107,12 +1107,12 @@ function animComienzo(){
     var fontSizeCarry = 0; 
     var arrayAnimText = textoAnimComienzo.split("\n");
     for(var i = 0; i < arrayAnimText.length; i ++){
-        ctx.fillText(arrayAnimText[i], 20, 20 + fontSizeCarry, baseCanvas.width-20, baseCanvas.width);
+        ctx.fillText(arrayAnimText[i], 20, 20 + fontSizeCarry, baseCanvas.width-20, baseCanvas.width-20);
         fontSizeCarry += fontSize; 
     }
     ctx.fillStyle = "red"; 
     ctx.textAlign = "center"; 
-    ctx.fillText("Click o toca para continuar", baseCanvas.width/2, baseCanvas.height - 40, baseCanvas.width);
+    ctx.fillText("Click o toca para continuar", baseCanvas.width/2, baseCanvas.height - 40, baseCanvas.width-20);
     requestAnimationFrame(comienzoMode);
 }
 
@@ -1123,32 +1123,32 @@ function instruMode(){
     ctx.font = fontSize + "px Consolas"; 
     ctx.textAlign = "left"; 
     ctx.fillStyle = "white"; 
-    ctx.fillText("Los CEOs comenzaran a buscarte",20,20, baseCanvas.width); 
+    ctx.fillText("Los CEOs comenzaran a buscarte",20,20, baseCanvas.width-20); 
     ctx.drawImage(ceoSprite[0], 30, 35);
     ctx.drawImage(ceoSprite[0], 60, 35);
     ctx.drawImage(ceoSprite[0], 90, 35);
-    ctx.fillText("Para eliminarlos podes tocar o clickear y lanzar un sol patrio", 20, 100, baseCanvas.width);
-    ctx.fillText("Al hacerlo aumentaras tu nivel de crecimiento y los baldios se convertiran en edificios", 20, 120, baseCanvas.width);
+    ctx.fillText("Para eliminarlos podes tocar o clickear y lanzar un sol patrio", 20, 100, baseCanvas.width-20);
+    ctx.fillText("Al hacerlo aumentaras tu nivel de crecimiento y los baldios se convertiran en edificios", 20, 120, baseCanvas.width-20);
     var mejoraImg;
     for(var i = 1; i <= asignarMaxLevel("mejoraBarrio2"); i++){
         mejoraImg = asignarImagenMejora("mejoraBarrio2", i); 
         ctx.drawImage(mejoraImg, 20+(i-1)*65, 140);
     }
-    ctx.fillText("Cuidado! La riqueza del pueblo atrae a más CEOs hambrientos de dinero", 20, 230, baseCanvas.width);
-    ctx.fillText("Cada cierto tiempo podrás elegir entre tres bonuses:", 20, 250, baseCanvas.width);
-    ctx.fillText("1. Sumar compañeros aumenta el poder de golpe", 30, 270, baseCanvas.width);
+    ctx.fillText("Cuidado! La riqueza del pueblo atrae a más CEOs hambrientos de dinero", 20, 230, baseCanvas.width-20);
+    ctx.fillText("Cada cierto tiempo podrás elegir entre tres bonuses:", 20, 250, baseCanvas.width-20);
+    ctx.fillText("1. Sumar compañeros aumenta el poder de golpe", 30, 270, baseCanvas.width-20);
     ctx.drawImage(bonusCompanero, 100, 290);
-    ctx.fillText("2. Llevar al pueblo a la plaza asusta a los CEOs por un rato", 30, 350, baseCanvas.width);
+    ctx.fillText("2. Llevar al pueblo a la plaza asusta a los CEOs por un rato", 30, 350, baseCanvas.width-20);
     ctx.drawImage(bonusPueblo, 100, 370);
-    ctx.fillText("3. Redistribuir la riqueza aumenta el crecimiento", 30, 430, baseCanvas.width); 
+    ctx.fillText("3. Redistribuir la riqueza aumenta el crecimiento", 30, 430, baseCanvas.width-20); 
     ctx.drawImage(bonusRedistribucion, 100, 450);
     ctx.textAlign = "center"; 
     fontSize = 20; 
     ctx.font = fontSize + "px Consolas"; 
-    ctx.fillText("¡MUCHA SUERTE COMPAÑERX!", baseCanvas.width/2, 540, baseCanvas.width);
+    ctx.fillText("¡MUCHA SUERTE COMPAÑERX!", baseCanvas.width/2, 540, baseCanvas.width-20);
     ctx.fillStyle = "red"; 
     ctx.textAlign = "center"; 
-    ctx.fillText("Click o toca para continuar", baseCanvas.width/2, baseCanvas.height - 40, baseCanvas.width);
+    ctx.fillText("Click o toca para continuar", baseCanvas.width/2, baseCanvas.height - 40, baseCanvas.width-20);
     if(instruModeOn){
         requestAnimationFrame(instruMode); 
     }
@@ -1162,7 +1162,7 @@ function pausaMode(){
     ctx.fillRect(0,0, baseCanvas.width, baseCanvas.height);
     ctx.fillStyle = "white"; 
     ctx.textAlign = "center";
-    ctx.fillText("Click o touch para continuar", baseCanvas.width /2, baseCanvas.height /2, baseCanvas.width); 
+    ctx.fillText("Click o touch para continuar", baseCanvas.width /2, baseCanvas.height /2, baseCanvas.width-20); 
     if(pausaModeOn){
         requestAnimationFrame(pausaMode);
     }
@@ -1177,7 +1177,7 @@ function presentacionMode(){
     ctx.fillStyle = "black"; 
     ctx.textAlign = "center"; 
     ctx.font = "20px Consolas"; 
-    ctx.fillText("TANDROIDE JUEGOS PRESENTA", baseCanvas.width /2, (baseCanvas.height + tandroide.height) /2 + 20, baseCanvas.width);
+    ctx.fillText("TANDROIDE JUEGOS PRESENTA", baseCanvas.width /2, (baseCanvas.height + tandroide.height) /2 + 20, baseCanvas.width-20);
     ctx.fillStyle = "rgba(255,255,255," + fondoAnim + ")";
     ctx.fillRect(0,0,baseCanvas.width, baseCanvas.height);
     if(presentacionModeOn && contadorPresentacion > 0){
@@ -1206,7 +1206,7 @@ function menuMode(){
     ctx.fillRect(0,primeraParada, baseCanvas.width, primeraParada);
     ctx.fillStyle = "white"; 
     ctx.textAlign = "center"; 
-    ctx.fillText("Click o toca para continuar", baseCanvas.width/2, baseCanvas.height - 40, baseCanvas.width);
+    ctx.fillText("Click o toca para continuar", baseCanvas.width/2, baseCanvas.height - 40, baseCanvas.width-20);
     if(menuModeOn){
         if(contadorMenu > 0){
             contadorMenu -= 0.01;
