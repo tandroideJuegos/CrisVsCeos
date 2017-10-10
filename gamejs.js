@@ -1051,7 +1051,6 @@ function gameMode(){
     
     drawFondo();
     drawPausa();
-    drawCompartir();
     drawMejoras(mejoras);
     drawAnimNuevaConstr(animNuevaConstr);
     drawMensaje(mensaje);
