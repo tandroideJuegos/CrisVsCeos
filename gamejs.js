@@ -21,6 +21,15 @@ function loadImg(ruta){
     return imag;
 }
 
+function loadSound(rutas){
+    var sound = new Audio(); 
+    sound.src = rutas;
+    if(rutas == "sonidos/construccionSound.m4a"){
+        sound.loop = true;
+    }
+    return sound;
+}
+
 function loadMonedaSprite(){
     var lista = [];
     for(var i=1; i < 9; i++){
@@ -106,7 +115,7 @@ function mouseClickHandler(e){
             }
             else if((relativeX > baseCanvas.width/2 - bonusPueblo.width/2) && (relativeX < baseCanvas.width/2 + bonusPueblo.width/2 )){
                 aplicarBonus("pueblo");
-                bonusModeOn = false; 
+                requestAnimationFrame(animPueblo);
             }
             else if((relativeX > baseCanvas.width - bonusRedistribucion.width * 3) && (relativeX < baseCanvas.width - bonusRedistribucion.width * 2)){
                 aplicarBonus("redistribucion");
@@ -127,6 +136,37 @@ function mouseClickHandler(e){
         comienzoModeOn = true;
     }
     
+}
+
+function animPueblo(){
+    if(contadorAnimPueblo < 200){
+        for(var j = 0; j < listaPueblo.length; j++){
+            listaPueblo[j][1] += 4;
+        }
+        for(var i = 0; i < 10; i++){
+            randPos = Math.floor(Math.random()*baseCanvas.width);
+            listaPueblo.splice(0,0, [randPos,0]);
+        }
+    }    
+    else if(contadorAnimPueblo >= 250){
+        contadorAnimPueblo = 0; 
+        listaPueblo = []; 
+        listaPuebloelim = [];
+        bonusModeOn = false;
+        return; 
+    }
+    drawFondo();
+    drawMejoras(mejoras);
+    for(var i = 0; i < listaPueblo.length; i++){
+        ctx.drawImage(argentino, listaPueblo[i][0], listaPueblo[i][1]);
+        if(i%5 == 0){
+            ctx.fillStyle = "#ffffff"; 
+            ctx.fillRect(listaPueblo[i][0], listaPueblo[i][1], 20,5);
+        }
+    }
+    contadorAnimPueblo +=1; 
+    requestAnimationFrame(animPueblo);
+
 }
 
 function aplicarBonus(tipodeBonus){
@@ -1041,7 +1081,7 @@ function gameMode(){
     ajustes = generacionAjustes(ajustes);
     ajustes = manejoAjustes(ajustes);
     
-    if(Math.floor(Math.random()*5000) == 30){
+    if(Math.floor(Math.random()*3000) == 30){
         bonus = true;
         gameModeOn = false;
         bonusModeOn = true; 
@@ -1342,6 +1382,9 @@ var textoAnimComienzo = "";
 
 var mejorasLista = ["mejoraCasaHumilde1", "mejoraFabrica1", "mejoraParque1", "mejoraBarrio1", "mejoraBarrio2", "mejoraBarrio3", "mejoraEscuela1", "mejoraComercial1", "mejoraClub1", "mejoraCampo1"];
 
+var listaPueblo = [];
+var listaPuebloelim = [];
+var contadorAnimPueblo = 0;
 //variables de vista
 
 window.onload = function(){
@@ -1371,6 +1414,8 @@ window.onload = function(){
     tandroide = loadImg("imagenes/tandroide.png");
     
     cristiContra = loadImg("imagenes/cristicontra.png");
+    
+    argentino = loadImg("imagenes/argentino.png");
     
     mejoraCasaHumilde1Lvl1 = loadImg("imagenes/mejoras/casahumilde1lvl1.png");
     mejoraCasaHumilde1Lvl2 = loadImg("imagenes/mejoras/casahumilde1lvl2.png");
