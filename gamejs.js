@@ -1217,8 +1217,8 @@ function presentacionMode(){
     ctx.fillStyle = "black"; 
     ctx.textAlign = "center"; 
     ctx.font = "20px Consolas"; 
-    ctx.fillText("TANDROIDE JUEGOS PRESENTA", baseCanvas.width /2, baseCanvas.height*0.2 + tandroide.height + 10, baseCanvas.width-20);
-    ctx.drawImage(logoIndepe, (baseCanvas.width - logoIndepe.width)/2, baseCanvas.height*0.2 + tandroide.height + 10 + 20);
+    ctx.fillText("TANDROIDE JUEGOS Y CENTRO BARRIAL INDEPENDENCIA PRESENTAN", baseCanvas.width /2, baseCanvas.height*0.1 + tandroide.height + 10, baseCanvas.width-20);
+    ctx.drawImage(logoIndepe, (baseCanvas.width - logoIndepe.width)/2, baseCanvas.height*0.1 + tandroide.height + 10 + 20);
     ctx.fillStyle = "rgba(255,255,255," + fondoAnim + ")";
     ctx.fillRect(0,0,baseCanvas.width, baseCanvas.height);
     if(presentacionModeOn && contadorPresentacion > 0){
