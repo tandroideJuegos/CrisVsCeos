@@ -1213,7 +1213,7 @@ function pausaMode(){
 
 function presentacionMode(){
     var fondoAnim = contadorPresentacion;
-    ctx.drawImage(tandroide, (baseCanvas.width - tandroide.width)/2, baseCanvas.height *0.2);
+    ctx.drawImage(tandroide, (baseCanvas.width - tandroide.width)/2, baseCanvas.height *0.1);
     ctx.fillStyle = "black"; 
     ctx.textAlign = "center"; 
     ctx.font = "20px Consolas"; 
