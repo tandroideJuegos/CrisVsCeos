@@ -1213,11 +1213,12 @@ function pausaMode(){
 
 function presentacionMode(){
     var fondoAnim = contadorPresentacion;
-    ctx.drawImage(tandroide, (baseCanvas.width - tandroide.width)/2, (baseCanvas.height - tandroide.height) /2);
+    ctx.drawImage(tandroide, (baseCanvas.width - tandroide.width)/2, baseCanvas.height *0.2);
     ctx.fillStyle = "black"; 
     ctx.textAlign = "center"; 
     ctx.font = "20px Consolas"; 
-    ctx.fillText("TANDROIDE JUEGOS PRESENTA", baseCanvas.width /2, (baseCanvas.height + tandroide.height) /2 + 20, baseCanvas.width-20);
+    ctx.fillText("TANDROIDE JUEGOS PRESENTA", baseCanvas.width /2, baseCanvas.height*0.2 + tandroide.height + 10, baseCanvas.width-20);
+    ctx.drawImage(logoIndepe, (baseCanvas.width - logoIndepe.width)/2, baseCanvas.height*0.2 + tandroide.height + 10 + 20);
     ctx.fillStyle = "rgba(255,255,255," + fondoAnim + ")";
     ctx.fillRect(0,0,baseCanvas.width, baseCanvas.height);
     if(presentacionModeOn && contadorPresentacion > 0){
@@ -1412,6 +1413,7 @@ window.onload = function(){
     //compartirImg = loadImg("imagenes/compartir.png");
     
     tandroide = loadImg("imagenes/tandroide.png");
+    logoIndepe = loadImg("imagenes/logoIndepe.png");
     
     cristiContra = loadImg("imagenes/cristicontra.png");
     
