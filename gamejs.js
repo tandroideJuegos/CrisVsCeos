@@ -1060,7 +1060,8 @@ function gameMode(){
     golpes = colisiones[4];
     for(var i = 0; i < golpes; i++){
         crecimientoLvl -= 2;
-        crecimientoLvlReal -= 1;
+        crecimientoLvlReal -= 2;
+        nuevoAjusteRate += 1;
         mensaje = "Triunfa el ajuste! El crecimiento cae a " + (crecimientoLvl / 20) + "%";
         mensajeCount = 0;
     }
